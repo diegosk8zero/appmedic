@@ -17,7 +17,20 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'email' => fake()->email(),
+            'phone' => '999 99 99 99',
+            'phone_2' => '888 88 88 88',
+            'certification' => '123 456 789',
+            'birth' => '1988-04-04',
+            'description' => 'some description',
+            'clinic_id' => Clinic::factory()->create()
         ];
     }
 }
+
+// $table->date('date');
+// $table->dateTime('initiate');
+// $table->dateTime('finish');
+// $table->boolean('status');
+// $table->text('description');
