@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Schedule;
-use App\Http\Requests\StoreScheduleRequest;
-use App\Http\Requests\UpdateScheduleRequest;
+use App\Models\Patient;
+use App\Http\Requests\StorePatientRequest;
+use App\Http\Requests\UpdatePatientRequest;
 
-class ScheduleController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('schedules.index', ['schedules' => Schedule::all()]);
+        //
     }
 
     /**
@@ -27,7 +27,7 @@ class ScheduleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreScheduleRequest $request)
+    public function store(StorePatientRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ScheduleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Schedule $schedule)
+    public function show(Patient $patient)
     {
         //
     }
@@ -43,7 +43,7 @@ class ScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Schedule $schedule)
+    public function edit(Patient $patient)
     {
         //
     }
@@ -51,7 +51,7 @@ class ScheduleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateScheduleRequest $request, Schedule $schedule)
+    public function update(UpdatePatientRequest $request, Patient $patient)
     {
         //
     }
@@ -59,7 +59,7 @@ class ScheduleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Patient $patient)
     {
         //
     }

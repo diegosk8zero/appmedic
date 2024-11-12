@@ -1,6 +1,9 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Medic;
+use App\Models\Patient;
+
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,14 +20,13 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->email(),
-            'phone' => '999 99 99 99',
-            'phone_2' => '888 88 88 88',
-            'certification' => '123 456 789',
-            'birth' => '1988-04-04',
-            'description' => 'some description',
-            'clinic_id' => Clinic::factory()->create()
+            'date' => fake()->date(),
+            'initiate' => fake()->dateTimeBetween('+1 week', '+2 week'),
+            'finish' => fake()->dateTimeBetween('+1 week', '+2 week'),
+            'status' => false,
+            'description' => fake()->paragraph(2),
+            'medic_id' => Medic::factory()->create(),
+            'patient_id' => Patient::factory()->create()
         ];
     }
 }
