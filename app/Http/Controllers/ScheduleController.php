@@ -13,7 +13,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('schedules.index', ['schedules' => Schedule::all()]);
+        return view('schedules.index', ['schedules' => Schedule::all()->where('status', 1)]);
     }
 
     /**
