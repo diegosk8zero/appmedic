@@ -7,6 +7,7 @@ use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\ExpertiseController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SicknessController;
+use App\Http\Controllers\TreatmentController;
 
  
 
@@ -14,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('medics', MedicController::class);
-Route::resource('clinics', ClinicController::class);
-Route::resource('expertises', ExpertiseController::class);
-Route::resource('schedules', ScheduleController::class);
-Route::resource('sicknesses', SicknessController::class);
+Route::resource('medics', MedicController::Class);
+Route::resource('clinics', ClinicController::Class);
+Route::resource('expertises', ExpertiseController::Class);
+Route::resource('schedules', ScheduleController::Class);
+Route::resource('sicknesses', SicknessController::Class);
+Route::resource('treatments', Treatment::Class);

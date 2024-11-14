@@ -27,4 +27,9 @@ class Medic extends Model
     {
         return $this->belongsToMany(Sickness::Class);
     }
+
+    public function treatments(): BelongsToMany
+    {
+        return $this->belongsToMany(Treatment::Class, 'medic_treatment', 'medic_id', 'treatment');
+    }
 }
