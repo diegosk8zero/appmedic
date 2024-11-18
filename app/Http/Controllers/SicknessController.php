@@ -13,6 +13,7 @@ class SicknessController extends Controller
      */
     public function index()
     {
+     
         return view('sicknesses.index', ['sicknesses' => Sickness::all()]);
     }
 

@@ -8,11 +8,14 @@
       <div class="min-w-0 flex-auto">
         <p class="text-sm font-semibold leading-6 text-gray-900">{{$sickness->name}}</p>
         <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$sickness->description}}</p>
-        <p>TRATAMENTO</p>
-        <?php foreach($sickness->treatments as $treatment) :?>
-        <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$treatment->name}}</p>
-        <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$treatment->description}}</p>
-        <?php endforeach ?>
+        <?php if ?>
+          <p>TRATAMENTO</p>
+          <?php foreach($sickness->treatments as $treatment) :?>
+            <?php dd($sickness->treatments) ?>
+          <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$treatment->name}}</p>
+          <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{$treatment->description}}</p>
+          <?php endforeach ?>
+          <?php endif ?> 
       </div>
     </div>
   
