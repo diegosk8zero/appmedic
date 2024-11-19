@@ -16,4 +16,9 @@ class Treatment extends Model
         return $this->belongsToMany(Sickness::Class);
     }
 
+    public function medics(): BelongsToMany
+    {
+        return $this->belongsToMany(Medic::Class);
+    }
+
 }
