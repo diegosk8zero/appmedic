@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->dataTime('consult_time');
-            $table->string('description')
+            $table->string('description');
             $table->timestamps();
         });
     }
