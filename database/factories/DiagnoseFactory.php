@@ -24,7 +24,7 @@ class DiagnoseFactory extends Factory
 
             'medic_id' => Medic::factory()->create(),
             'patient_id' => Patient::factory()->create(),
-            'consult_time' => fake()->time->dateTimeBetween('+1 week', '+2 week'),
+            'consult_time' => fake()->dateTimeBetween('+1 week', '+2 week'),
             'description' => fake()->paragraph(2)
         ];
     }
