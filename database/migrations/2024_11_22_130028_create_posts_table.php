@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('medic_id');
             $table->foreign('medic_id')->references('id')->on('medics');
             $table->text('body');
-            $table->interger('view');
+            $table->integer('views');
             $table->timestamps();
         });
     }
