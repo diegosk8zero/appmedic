@@ -1,7 +1,9 @@
 <x-layout>
+<div class="flex justify-start">
 <h1>Create Clinic</h1>
 
-<form>
+<form action="clinics/create" method="post" >
+  @csfr
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
       <h2 class="text-base/7 font-semibold text-gray-900">Profile</h2>
@@ -211,5 +213,5 @@
   </div>
 </form>
 
-
+</div>
 </x-layout>

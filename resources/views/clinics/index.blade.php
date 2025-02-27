@@ -1,6 +1,7 @@
 <x-layout>
 
 <?php foreach($clinics as $clinic) :?>
+<!--
 <div class="container mx-auto px-10">
 <ul role="list" class="divide-y divide-gray-100">
   <li class="flex justify-between gap-x-6 py-5">
@@ -18,15 +19,14 @@
   </li>
 </ul>
 </div>
-
-<!-- <table id="myTable" class="display">
+-->
+ <table id="myTable" class="display">
     <thead>
         <tr>
             <th>Clinic Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Adress</th>
-
         </tr>
     </thead>
     <tbody>
@@ -37,7 +37,7 @@
             <td>{{$clinic->adress}}</td>
         </tr>
     </tbody>
-</table> -->
+</table> 
 
 <?php endforeach ?>
 </x-layout>

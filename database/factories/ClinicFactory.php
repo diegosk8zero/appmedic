@@ -24,7 +24,7 @@ class ClinicFactory extends Factory
             'phone_2' => '888 88 88 88',
             'adress' => 'Calle ' . fake()->name() . '1058',
             'description' => 'some description',
-            'coordinates' => fake()->localCoordinates()
+            
         ];
     }
 }
