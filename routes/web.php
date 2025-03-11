@@ -20,4 +20,4 @@ Route::resource('clinics', ClinicController::Class);
 Route::resource('expertises', ExpertiseController::Class);
 Route::resource('schedules', ScheduleController::Class);
 Route::resource('sicknesses', SicknessController::Class);
-Route::resource('treatments', Treatment::Class);
+Route::resource('treatments', TreatmentController::Class);
