@@ -24,4 +24,5 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('menu', Menu::class);
     }
+    
 }
