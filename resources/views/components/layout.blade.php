@@ -21,8 +21,11 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img class="size-8 rounded-full" src="{{asset('imgs/medic.jpg')}}" alt="Your Company">
+            <img class="size-8 rounded-full" src="{{asset('imgs/medic.jpg')}}" alt="App Medic">
           </div>
+
+          <x-menu/>
+          
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -33,6 +36,7 @@
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
             </div>
           </div>
+
         </div>
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
