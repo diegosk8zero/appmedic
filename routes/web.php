@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('medics', MedicController::Class);
-Route::resource('clinics', ClinicController::Class);
-Route::resource('expertises', ExpertiseController::Class);
-Route::resource('schedules', ScheduleController::Class);
-Route::resource('sicknesses', SicknessController::Class);
-Route::resource('treatments', TreatmentController::Class);
+Route::resource('medic', MedicController::Class);
+Route::resource('clinic', ClinicController::Class);
+Route::resource('expertise', ExpertiseController::Class);
+Route::resource('schedule', ScheduleController::Class);
+Route::resource('sickness', SicknessController::Class);
+Route::resource('treatment', TreatmentController::Class);

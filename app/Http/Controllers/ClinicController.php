@@ -29,7 +29,18 @@ class ClinicController extends Controller
      */
     public function store(StoreClinicRequest $request)
     {
-        //
+        $clinic = Clinic::create(
+                [
+                    'name' => $request->input('name'), 
+                    'email' => $request->input('email'), 
+                    'phone' => $request->input('phone'), 
+                    'phone_2' => $request->input('phone_2'), 
+                    'adress' => $request->input('adress'),	
+                    'description' => $request->input('description')
+                ]
+            );
+        
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +57,8 @@ class ClinicController extends Controller
      */
     public function edit(Clinic $clinic)
     {
-        //
+        
+        return view('clinics.edit', ['clinic' => $clinic]);
     }
 
     /**
@@ -55,6 +67,7 @@ class ClinicController extends Controller
     public function update(UpdateClinicRequest $request, Clinic $clinic)
     {
         //
+        $request->all();
     }
 
     /**

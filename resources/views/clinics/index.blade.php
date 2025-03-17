@@ -1,85 +1,69 @@
 <x-layout>
-<!--
-  This example requires updating your template:
 
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
-<div class="min-h-full">
-  <nav class="bg-gray-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center">
-          <div class="shrink-0">
-            <img class="size-8" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
-            </div>
-          </div>
+<div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <!-- Botão de Adicionar Clínica -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold">Lista de Clínicas</h2>
+            <a href="{{ route('clinic.create') }}" 
+                class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                + Adicionar Clínica
+            </a>
         </div>
-        <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
-            <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-              <span class="absolute -inset-1.5"></span>
-              <span class="sr-only">View notifications</span>
-              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-              </svg>
-            </button>
 
-            <!-- Profile dropdown -->
-            <div class="relative ml-3">
-              <div>
-                <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span class="absolute -inset-1.5"></span>
-                  <span class="sr-only">Open user menu</span>
-                  <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                </button>
-              </div>
+        <table id="clinicsTable" class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2 text-left">Nome</th>
+                    <th class="p-2 text-left">Email</th>
+                    <th class="p-2 text-left">Telefone</th>
+                    <th class="p-2 text-left">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($clinics as $clinic)
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="p-2">
+                            <a href="{{ route('clinic.show', $clinic->id) }}" class="text-blue-500 hover:underline">
+                                {{ $clinic->name }}
+                            </a>
+                        </td>
+                        <td class="p-2">{{ $clinic->email }}</td>
+                        <td class="p-2">{{ $clinic->phone }}</td>
+                        <td class="p-2 flex space-x-2">
+                            <!-- Botão Editar -->
+                            <a href="{{ route('clinic.edit', $clinic->id) }}" 
+                                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                                Editar
+                            </a>
 
-              <!--
-                Dropdown menu, show/hide based on menu state.
-
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
-              <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
+                            <!-- Botão Deletar -->
+                            <form action="{{ route('clinic.destroy', $clinic->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                                    Deletar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
-  </nav>
+    <!-- Script de Inicialização do DataTables -->
+    <script>
+        $(document).ready( function () {
+            $('#clinicsTable').DataTable({
+                language: {
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "Nenhuma clínica encontrada",
+                    "info": "Mostrando _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponível",
+                    "infoFiltered": "(filtrado de _MAX_ registros totais)"
+                }
+            });
+        });
+    </script>
 
-  <header class="bg-white shadow-sm">
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-    </div>
-  </header>
-  <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <!-- Your content -->
-    </div>
-  </main>
-</div>
 </x-layout>
