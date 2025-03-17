@@ -40,7 +40,7 @@ class ClinicController extends Controller
                 ]
             );
         
-        return redirect()->back();
+            return redirect()->route('clinic.index')->with('success_update', 'Clínica cadastrada com sucesso!');
     }
 
     /**
@@ -64,10 +64,19 @@ class ClinicController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(UpdateClinicRequest $request, Clinic $clinic)
     {
         //
-        $request->all();
+        $clinic->name = $request->input('name');
+        $clinic->email = $request->input('email'); 
+        $clinic->phone = $request->input('phone'); 
+        $clinic->phone_2 = $request->input('phone_2');
+        $clinic->adress = $request->input('adress');
+        $clinic->description = $request->input('description');
+        $clinic->save();
+
+        return redirect()->route('clinic.index')->with('success_update', 'Clínica atualizada com sucesso!');
     }
 
     /**

@@ -23,6 +23,27 @@ class UpdateClinicRequest extends FormRequest
     {
         return [
             //
+            'name'        => 'required|string|max:255',
+            'email'       => 'required|email|max:255',
+            'phone'       => 'required|string|max:20',
+            'phone_2'     => 'required|string|max:20',
+            'adress'      => 'required|string|max:255',
+            'description' => 'required|string|max:500',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required'        => 'O campo Nome é obrigatório.',
+            'email.required'       => 'O campo Email é obrigatório.',
+            'email.email'          => 'Insira um email válido.',
+            'phone.required'       => 'O campo Telefone é obrigatório.',
+            'phone_2.required'     => 'O campo Telefone Secundário é obrigatório.',
+            'adress.required'      => 'O campo Endereço é obrigatório.',
+            'description.required' => 'O campo Descrição é obrigatório.',
+        ];
+    }
+
+
 }
