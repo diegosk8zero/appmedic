@@ -49,7 +49,7 @@ class ClinicController extends Controller
     public function show(Clinic $clinic)
     {
 
-        return view('clinics.show');
+        return view('clinics.show', ['clinic' => $clinic]);
     }
 
     /**

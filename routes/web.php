@@ -8,6 +8,8 @@ use App\Http\Controllers\ExpertiseController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SicknessController;
 use App\Http\Controllers\TreatmentController;
+use App\Http\Controllers\ClinicPhotoContoller;
+use App\Http\Controllers\PhotoContoller;
 
  
 
@@ -21,3 +23,5 @@ Route::resource('expertise', ExpertiseController::Class);
 Route::resource('schedule', ScheduleController::Class);
 Route::resource('sickness', SicknessController::Class);
 Route::resource('treatment', TreatmentController::Class);
+route::resource('photo', PhotoContoller::Class);
+route::resource('clinicphoto', ClinicPhotoContoller::Class)
