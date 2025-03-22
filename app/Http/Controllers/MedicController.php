@@ -45,7 +45,7 @@ class MedicController extends Controller
 
             ]);
 
-        return redirect()->route('medic.index')->with('success_update', 'Medico cadastrado com sucesso!');
+        return redirect()->route('medic.index')->with('success', 'Medico cadastrado com sucesso!');
     }
 
     /**
@@ -61,7 +61,7 @@ class MedicController extends Controller
      */
     public function edit(Medic $medic)
     {
-        //
+        return view('medics.edit', ['medic' => $medic, 'clinics' => Clinic::all()]);
     }
 
     /**
@@ -69,7 +69,19 @@ class MedicController extends Controller
      */
     public function update(UpdateMedicRequest $request, Medic $medic)
     {
-        //
+            //
+            
+            $medic->name = $request->input('name');
+            $medic->email = $request->input('email');
+            $medic->phone = $request->input('phone');
+            $medic->phone_2 = $request->input('phone_2');
+            $medic->certification = $request->input('certification');
+            $medic->birth = $request->input('birth');
+            $medic->description = $request->input('description');
+            $medic->clinic_id = $request->input('clinic_id');
+            $medic->save();
+
+            return redirect()->route('medic.index')->with('success_update', 'Medico alterado com sucesso!');
     }
 
     /**

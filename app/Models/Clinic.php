@@ -13,6 +13,13 @@ class Clinic extends Model
 
     protected $fillable = ['name', 'email', 'phone', 'phone_2', 'adress',	'description'];
 
+    protected static function booted()
+    {
+        static::deleting(function ($clinic) {
+            $clinic->medics()->delete();
+        });
+    }
+
     public function medics()
     {
         return this->hasMany(Medic::class);

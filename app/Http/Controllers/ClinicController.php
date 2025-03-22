@@ -40,7 +40,7 @@ class ClinicController extends Controller
                 ]
             );
         
-            return redirect()->route('clinic.index')->with('success_update', 'Clínica cadastrada com sucesso!');
+            return redirect()->route('clinic.index')->with('success', 'Clínica cadastrada com sucesso!');
     }
 
     /**
