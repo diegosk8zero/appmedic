@@ -53,7 +53,7 @@ class MedicController extends Controller
      */
     public function show(Medic $medic)
     {
-        //
+        return view('medics.show', ['medic' => $medic]);
     }
 
     /**
