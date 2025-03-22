@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medic;
+use App\Models\Clinic;
 use App\Http\Requests\StoreMedicRequest;
 use App\Http\Requests\UpdateMedicRequest;
 
@@ -21,7 +22,8 @@ class MedicController extends Controller
      */
     public function create()
     {
-        return view('medics.create');
+
+        return view('medics.create', ['clinics' => Clinic::all()]);
     }
 
     /**
@@ -30,6 +32,7 @@ class MedicController extends Controller
     public function store(StoreMedicRequest $request)
     {
         //
+        return dd($request->all());
     }
 
     /**

@@ -23,7 +23,7 @@ class ClinicFactory extends Factory
             'phone' => '999 99 99 99',
             'phone_2' => '888 88 88 88',
             'adress' => 'Calle ' . fake()->name() . '1058',
-            'description' => 'some description',
+            'description' => fake()->paragraph(2),
             
         ];
     }

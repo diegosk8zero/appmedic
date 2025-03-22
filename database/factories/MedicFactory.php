@@ -16,8 +16,13 @@ class MedicFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Clinic::class;
+   
+
     public function definition(): array
     {
+        $clinic = Clinic::inRamdonOrder()->first();
+
         return [
             'name' => fake()->name(),
             'email' => fake()->email(),
@@ -25,8 +30,8 @@ class MedicFactory extends Factory
             'phone_2' => '888 88 88 88',
             'certification' => '123 456 789',
             'birth' => '1988-04-04',
-            'description' => 'some description',
-            'clinic_id' => Clinic::factory()->create()
+            'description' => fake()->paragraph(2),
+            'clinic_id' => $clinic->id
         ];
     }
 }
