@@ -32,7 +32,20 @@ class MedicController extends Controller
     public function store(StoreMedicRequest $request)
     {
         //
-        return dd($request->all());
+        $medic = Medic::create([
+
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'phone_2' => $request->input('phone_2'),
+            'certification' => $request->input('certification'),
+            'birth' => $request->input('birth'),
+            'description' => $request->input('description'),
+            'clinic_id' => $request->input('clinic_id')
+
+            ]);
+
+        return redirect()->route('medic.index')->with('success_update', 'Medico cadastrado com sucesso!');
     }
 
     /**

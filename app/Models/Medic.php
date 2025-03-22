@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Medic extends Model
 {
     use hasFactory;
+    
+    protected $fillable = ['name', 'email', 'phone', 'phone_2', 'certification',	'birth', 'description', 'clinic_id'];
 
     public function clinic(): BelongsTo
     {
@@ -31,5 +33,10 @@ class Medic extends Model
     public function treatments(): BelongsToMany
     {
         return $this->belongsToMany(Treatment::Class, 'medic_treatment', 'medic_id', 'treatment');
+    }
+
+    public function sickness(): BelongsToMany
+    {
+        return $this->belongsToMany(Sickness::Class, 'medic_sickness', 'medic_id', 'treatment');
     }
 }
