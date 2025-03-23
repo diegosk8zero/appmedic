@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clinics', function (Blueprint $table) {
+        Schema::create('insurances', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("email");
-            $table->string("phone");
-            $table->string("phone_2");
-            $table->string("adress");
-            $table->text("description");
-            //$table->geography("coordinates", subtype: "point", srid: 4326);
+            $table->string('name'); 
+            
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clinics');
+        Schema::dropIfExists('insurances');
     }
 };

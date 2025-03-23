@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Sickness;
 use App\Http\Requests\StoreSicknessRequest;
 use App\Http\Requests\UpdateSicknessRequest;
+use App\Repositories\SicknessRepository;
 
 class SicknessController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    protected $sicknessRepository;
+
+    public function __construct(SicknessRepository $sicknessRepository)
+    {
+        $this->sicknessRepository = $sicknessRepository;
+    }
+
+
     public function index()
     {
-     
-        return view('sicknesses.index', ['sicknesses' => Sickness::all()]);
+        $sicknesses = $this->sicknessRepository->all();
+        return view('sicknesses.index', ['sicknesses' => $sicknesses]);
     }
 
     /**

@@ -28,7 +28,7 @@ class StoreClinicRequest extends FormRequest
             'phone'       => 'required|string|max:20',
             'phone_2'     => 'required|string|max:20',
             'adress'      => 'required|string|max:255',
-            'description' => 'required|string|max:500',
+            'description' => 'required|string',
         ];
     }
 

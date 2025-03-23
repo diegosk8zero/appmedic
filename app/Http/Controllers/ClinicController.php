@@ -5,15 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Clinic;
 use App\Http\Requests\StoreClinicRequest;
 use App\Http\Requests\UpdateClinicRequest;
+use App\Repositories\ClinicRepository;
 
 class ClinicController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    protected $clinicRepository;
+
+    public function __construct(ClinicRepository $clinicRepository)
+    {
+        $this->clinicRepository = $clinicRepository;
+    }
+
+
     public function index()
     {
-        return view('clinics.index', ['clinics' => Clinic::all()]);
+        $clinics = $this->clinicRepository->all();
+        return view('clinics.index', ['clinics' => $clinics]);
     }
 
     /**
@@ -29,18 +39,11 @@ class ClinicController extends Controller
      */
     public function store(StoreClinicRequest $request)
     {
-        $clinic = Clinic::create(
-                [
-                    'name' => $request->input('name'), 
-                    'email' => $request->input('email'), 
-                    'phone' => $request->input('phone'), 
-                    'phone_2' => $request->input('phone_2'), 
-                    'adress' => $request->input('adress'),	
-                    'description' => $request->input('description')
-                ]
-            );
-        
-            return redirect()->route('clinic.index')->with('success', 'Clínica cadastrada com sucesso!');
+
+        $data = $request->all();
+
+        $this->clinicRepository->create($data);
+        return redirect()->route('clinic.index')->with('success', 'Clínica cadastrada com sucesso!');
     }
 
     /**
@@ -48,7 +51,7 @@ class ClinicController extends Controller
      */
     public function show(Clinic $clinic)
     {
-
+       
         return view('clinics.show', ['clinic' => $clinic]);
     }
 
@@ -68,14 +71,7 @@ class ClinicController extends Controller
     public function update(UpdateClinicRequest $request, Clinic $clinic)
     {
         //
-        $clinic->name = $request->input('name');
-        $clinic->email = $request->input('email'); 
-        $clinic->phone = $request->input('phone'); 
-        $clinic->phone_2 = $request->input('phone_2');
-        $clinic->adress = $request->input('adress');
-        $clinic->description = $request->input('description');
-        $clinic->save();
-
+        $this->clinicRepository->update($clinic->id, $request->all());
         return redirect()->route('clinic.index')->with('success_update', 'Clínica atualizada com sucesso!');
     }
 

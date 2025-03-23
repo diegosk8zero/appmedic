@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Sickness>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Insurance>
  */
-class SicknessFactory extends Factory
+class InsuranceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,7 @@ class SicknessFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence(),
-            'description' => fake()->paragraph(2),
-            'status' => 1
-
+            //
         ];
     }
 }

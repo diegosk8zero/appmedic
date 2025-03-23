@@ -24,4 +24,11 @@ class Clinic extends Model
     {
         return this->hasMany(Medic::class);
     }
+
+    public function insurances()
+    {
+        return $this->belongsToMany(Insurance::class, 'clinic_insurance');
+    }
+
+
 }

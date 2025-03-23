@@ -6,15 +6,26 @@ use App\Models\Medic;
 use App\Models\Clinic;
 use App\Http\Requests\StoreMedicRequest;
 use App\Http\Requests\UpdateMedicRequest;
+use App\Repositories\Interfaces\MedicRepositoryInterface;
 
 class MedicController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    //repository for medics
+    private $medicRepository;
+
+    public function __construct(MedicRepositoryInterface $medicRepository)
+    {
+        $this->medicRepository = $medicRepository;
+    }
+
+
     public function index()
     {
-        return view('medics.index', ['medics' => Medic::all()]);
+        $medics = $this->medicRepository->all();
+        return view('medics.index', ['medics' => $medics]);
     }
 
     /**
@@ -31,20 +42,9 @@ class MedicController extends Controller
      */
     public function store(StoreMedicRequest $request)
     {
-        //
-        $medic = Medic::create([
-
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'phone_2' => $request->input('phone_2'),
-            'certification' => $request->input('certification'),
-            'birth' => $request->input('birth'),
-            'description' => $request->input('description'),
-            'clinic_id' => $request->input('clinic_id')
-
-            ]);
-
+     
+        $data = $request->all();
+        $this->medicRepository->create($data);
         return redirect()->route('medic.index')->with('success', 'Medico cadastrado com sucesso!');
     }
 
@@ -69,18 +69,7 @@ class MedicController extends Controller
      */
     public function update(UpdateMedicRequest $request, Medic $medic)
     {
-            //
-            
-            $medic->name = $request->input('name');
-            $medic->email = $request->input('email');
-            $medic->phone = $request->input('phone');
-            $medic->phone_2 = $request->input('phone_2');
-            $medic->certification = $request->input('certification');
-            $medic->birth = $request->input('birth');
-            $medic->description = $request->input('description');
-            $medic->clinic_id = $request->input('clinic_id');
-            $medic->save();
-
+            $this->medicRepository->update($medic->id, $request->all());
             return redirect()->route('medic.index')->with('success_update', 'Medico alterado com sucesso!');
     }
 

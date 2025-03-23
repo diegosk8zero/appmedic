@@ -22,11 +22,12 @@
             </div>
         @endif
 
-        <table id="medicsTable" class="min-w-full bg-white border border-gray-200">
+        <table id="sicknessesTable" class="min-w-full bg-white border border-gray-200">
             <thead>
                 <tr class="bg-gray-200">
                     <th class="p-2 text-left">Nome</th>
-                  
+                    <th class="p-2 text-left">Email</th>
+                    <th class="p-2 text-left">Telefone</th>
                     <th class="p-2 text-left">Ações</th>
                 </tr>
             </thead>
@@ -38,7 +39,7 @@
                                 {{ $sickness->name }}
                             </a>
                         </td>
-                        
+                        <td class="p-2">{{ $sickness->description }}</td>
                         <td class="p-2 flex space-x-2">
                             <!-- Botão Editar -->
                             <a href="{{ route('sickness.edit', $sickness->id) }}" 
