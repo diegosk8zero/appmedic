@@ -8,6 +8,8 @@ use App\View\Components\Menu;
 use App\Repositories\Interfaces\MedicRepositoryInterface;
 use App\Repositories\MedicRepository;
 use App\Repositories\ClinicRepository;
+use App\Repositories\SicknessRepository;
+use App\Repositories\TreatmentRepository;
 use App\Repositories\Contracts\BaseRepositoryInterface;
 
 
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         //
         $this->app->bind(BaseRepositoryInterface::class, ClinicRepository::class);
         $this->app->bind(MedicRepositoryInterface::class, MedicRepository::class);
+        $this->app->bind(SicknessRepositoryInterface::class, SicknessRepository::class);
+        $this->app->bind(TreatmentRepositoryInterface::class, TreatmentRepository::class);
     }
 
     /**

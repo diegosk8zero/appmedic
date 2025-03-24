@@ -23,6 +23,18 @@ class StoreSicknessRequest extends FormRequest
     {
         return [
             //
+            'name'        => 'required|string|max:255',
+            'description' => 'required|string',
+            'status' => 'required'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required'        => 'O campo Nome é obrigatório.',
+            'description.required' => 'O campo Descrição é obrigatório.',
+            'status.required' => 'O campo Status é obrigatório.'
         ];
     }
 }

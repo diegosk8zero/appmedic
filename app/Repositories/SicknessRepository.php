@@ -42,7 +42,7 @@ class SicknessRepository extends BaseRepository implements BaseRepositoryInterfa
      */
     public function update($id, array $data)
     {
-        
+        dd($data);
         return $this->model->update($id, $data);
     }
 

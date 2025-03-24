@@ -12,6 +12,8 @@ class Sickness extends Model
 {
     use hasFactory;
 
+    protected $fillable = ['name',	'status', 'description'];
+
     public function treatments(): BelongsToMany
     {
         return $this->belongsToMany(Treatment::Class);

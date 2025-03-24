@@ -3,10 +3,10 @@
 <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
         <!-- Botão de Adicionar Clínica -->
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-bold">Lista de Clínicas</h2>
+            <h2 class="text-2xl font-bold">Lista de Enfermidades</h2>
             <a href="{{ route('sickness.create') }}" 
                 class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                + Adicionar Medico
+                + Adicionar Enfermindad
             </a>
         </div>
 
@@ -25,9 +25,8 @@
         <table id="sicknessesTable" class="min-w-full bg-white border border-gray-200">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="p-2 text-left">Nome</th>
-                    <th class="p-2 text-left">Email</th>
-                    <th class="p-2 text-left">Telefone</th>
+                    <th class="p-2 text-left">Nombre</th>
+                    
                     <th class="p-2 text-left">Ações</th>
                 </tr>
             </thead>
@@ -39,7 +38,7 @@
                                 {{ $sickness->name }}
                             </a>
                         </td>
-                        <td class="p-2">{{ $sickness->description }}</td>
+                        
                         <td class="p-2 flex space-x-2">
                             <!-- Botão Editar -->
                             <a href="{{ route('sickness.edit', $sickness->id) }}" 

@@ -1,6 +1,6 @@
 <x-layout>
     <div class="bg-white p-8 rounded-lg shadow-lg w-full">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Cadastro de Médico</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Añadir Enfermidad</h2>
 
         @if ($errors->any())
             <div class="bg-red-100 text-red-600 p-3 mb-4 rounded-lg">
@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        <form action="{{ route('medic.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('sickness.store') }}" method="POST" class="space-y-4">
             @csrf
 
             <!-- ID (geralmente oculto para novos cadastros) -->
@@ -24,73 +24,17 @@
                 @enderror
             </div>
 
-            <!-- Email -->
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}"
-                    class="mt-1 block w-1/2 p-2 border @error('email') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                @error('email')
+            <!-- Status -->
+            <div class="flex items-center">
+                <input type="checkbox" id="status" name="status" value="1" {{ old('status') ? 'checked' : '' }}
+                    class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="status" class="ml-2 block text-sm font-medium text-gray-700">Ativo</label>
+                
+                @error('status')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
-
-            <!-- Telefone -->
-            <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
-                <input type="text" id="phone" name="phone" value="{{ old('phone') }}"
-                    class="mt-1 block w-1/2 p-2 border @error('phone') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                @error('phone')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Telefone Secundário -->
-            <div>
-                <label for="phone_2" class="block text-sm font-medium text-gray-700">Telefone Secundário</label>
-                <input type="text" id="phone_2" name="phone_2" value="{{ old('phone_2') }}"
-                    class="mt-1 block w-1/2 p-2 border @error('phone_2') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                @error('phone_2')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Certificação -->
-            <div>
-                <label for="certification" class="block text-sm font-medium text-gray-700">Certificação</label>
-                <input type="text" id="certification" name="certification" value="{{ old('certification') }}"
-                    class="mt-1 block w-1/2 p-2 border @error('certification') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                @error('certification')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Data de Nascimento -->
-            <div>
-                <label for="birth" class="block text-sm font-medium text-gray-700">Data de Nascimento</label>
-                <input type="date" id="birth" name="birth" value="{{ old('birth') }}"
-                    class="mt-1 block w-1/2 p-2 border @error('birth') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                @error('birth')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Clínica (Select) -->
-            <div>
-                <label for="clinic_id" class="block text-sm font-medium text-gray-700">Clínica</label>
-                <select id="clinic_id" name="clinic_id" 
-                    class="mt-1 block w-1/2 p-2 border @error('clinic_id') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">Selecione uma clínica</option>
-                    @foreach($clinics as $clinic)
-                        <option value="{{ $clinic->id }}" {{ old('clinic_id') == $clinic->id ? 'selected' : '' }}>
-                            {{ $clinic->name }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('clinic_id')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
+            
             <!-- Descrição -->
             <div>
                 <label for="description" class="block text-sm font-medium text-gray-700">Descrição</label>
@@ -100,6 +44,8 @@
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
+
+            
 
             <!-- Botão de Enviar -->
             <div class="flex justify-end">

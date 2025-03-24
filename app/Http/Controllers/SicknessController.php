@@ -33,6 +33,7 @@ class SicknessController extends Controller
     public function create()
     {
         //
+        return view('sicknesses.create');
     }
 
     /**
@@ -41,6 +42,9 @@ class SicknessController extends Controller
     public function store(StoreSicknessRequest $request)
     {
         //
+        $data = $request->all();
+        $this->sicknessRepository->create($data);
+        return redirect()->route('sickness.index')->with('success', 'Enfermidad cadastrada com sucesso!');
     }
 
     /**
@@ -57,6 +61,7 @@ class SicknessController extends Controller
     public function edit(Sickness $sickness)
     {
         //
+        return view('sicknesses.edit', ['sickness' => $sickness]);
     }
 
     /**
@@ -65,6 +70,9 @@ class SicknessController extends Controller
     public function update(UpdateSicknessRequest $request, Sickness $sickness)
     {
         //
+        $data = $request->all();
+        $this->sicknessRepository->update( $sickness->id, $data);
+        return redirect()->route('sickness.index')->with('success', 'Alterado com sucesso!');
     }
 
     /**
