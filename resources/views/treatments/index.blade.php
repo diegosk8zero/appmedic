@@ -37,23 +37,23 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($sicknesses as $sickness)
+                @foreach($treatments as $treatment)
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="p-2">
-                            <a href="{{ route('sickness.show', $sickness->id) }}" class="text-blue-500 hover:underline">
-                                {{ $sickness->name }}
+                            <a href="{{ route('treatment.show', $treatment->id) }}" class="text-blue-500 hover:underline">
+                                {{ $treatment->name }}
                             </a>
                         </td>
                         
                         <td class="p-2 flex space-x-2">
                             <!-- Botão Editar -->
-                            <a href="{{ route('sickness.edit', $sickness->id) }}" 
+                            <a href="{{ route('treatment.edit', $treatment->id) }}" 
                                 class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
                                 Editar
                             </a>
 
                             <!-- Botão Deletar -->
-                            <form action="{{ route('sickness.destroy', $sickness->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                            <form action="{{ route('treatment.destroy', $treatment->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
@@ -70,7 +70,7 @@
     <!-- Script de Inicialização do DataTables -->
     <script>
         $(document).ready( function () {
-            $('#sicknessesTable').DataTable({
+            $('#treatmentsTable').DataTable({
                 language: {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
                     "zeroRecords": "Nenhuma clínica encontrada",

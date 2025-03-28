@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
         //
         $this->app->bind(BaseRepositoryInterface::class, ClinicRepository::class);
         $this->app->bind(MedicRepositoryInterface::class, MedicRepository::class);
-        $this->app->bind(SicknessRepositoryInterface::class, SicknessRepository::class);
-        $this->app->bind(TreatmentRepositoryInterface::class, TreatmentRepository::class);
+        $this->app->bind(BaseRepositoryInterface::class, SicknessRepository::class);
+        $this->app->bind(BaseRepositoryInterface::class, TreatmentRepository::class);
     }
 
     /**

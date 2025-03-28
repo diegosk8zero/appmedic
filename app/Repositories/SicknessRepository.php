@@ -42,15 +42,16 @@ class SicknessRepository extends BaseRepository implements BaseRepositoryInterfa
      */
     public function update($id, array $data)
     {
-        dd($data);
-        return $this->model->update($id, $data);
+        $sickness = $this->model->find($id);
+        return $sickness->update($data);
     }
 
     /**
      * Deleta uma doencas pelo ID.
      */
-    public function deleteClinic($id)
+    public function delete($id)
     {
-        return $this->model->delete($id);
+        $sickness = $this->model->find($id);
+        return $sickness->delete($id);
     }
 }

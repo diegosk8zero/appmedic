@@ -42,8 +42,8 @@ class ClinicRepository extends BaseRepository implements BaseRepositoryInterface
      */
     public function update($id, array $data)
     {
-        
-        return $this->model->update($id, $data);
+        $clinic = $this->model->find($id);
+        return $clinic->update($data);
     }
 
     /**

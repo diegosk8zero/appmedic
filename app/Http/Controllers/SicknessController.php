@@ -80,6 +80,9 @@ class SicknessController extends Controller
      */
     public function destroy(Sickness $sickness)
     {
-        //
+        if ($this->sicknessRepository->delete( $sickness->id)) {
+            return redirect()->route('sickness.index')->with('success_delete', 'Deletado com sucesso');
+        }
+        
     }
 }
