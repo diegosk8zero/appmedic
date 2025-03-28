@@ -17,7 +17,7 @@ class TreatmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->word(),
+            'name' => fake()->sentence(),
             'description' => fake()->paragraph(2),
             'status' => 1
         ];

@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Treatment;
 use App\Http\Requests\StoreTreatmentRequest;
 use App\Http\Requests\UpdateTreatmentRequest;
+use App\Repositories\TreatmentRepository;
 
 class TreatmentController extends Controller
 {
+    protected $treatmentRespository;
+
+    public function __construct(TreatmentRepository $treatmentRespository)
+    {
+        $this->treatmentRepository = $treatmentRespository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('treatments.index', ['treatments' => $this->treatmentRepository->all()]);
     }
 
     /**
