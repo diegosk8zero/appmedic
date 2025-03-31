@@ -52,6 +52,11 @@
                                 Editar
                             </a>
 
+                            <a href="{{ route('sickness.management', $sickness->id) }}" 
+                                class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                                Gestionar
+                            </a>
+
                             <!-- Botão Deletar -->
                             <form action="{{ route('sickness.destroy', $sickness->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
                                 @csrf

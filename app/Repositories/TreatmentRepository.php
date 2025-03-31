@@ -42,8 +42,8 @@ class TreatmentRepository extends BaseRepository implements BaseRepositoryInterf
      */
     public function update($id, array $data)
     {
-        
-        return $this->model->update($id, $data);
+        $treatment = $this->model->find($id);
+        return $treatment->update($data);
     }
 
     /**

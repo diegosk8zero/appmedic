@@ -3,10 +3,10 @@
 <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
         <!-- Botão de Adicionar Clínica -->
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-bold">Lista de Enfermidades</h2>
-            <a href="{{ route('sickness.create') }}" 
+            <h2 class="text-2xl font-bold">Lista de tratamientos</h2>
+            <a href="{{ route('treatment.create') }}" 
                 class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                + Adicionar Enfermindad
+                + Adicionar Tratamiento
             </a>
         </div>
 

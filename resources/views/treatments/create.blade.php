@@ -1,6 +1,6 @@
 <x-layout>
     <div class="bg-white p-8 rounded-lg shadow-lg w-full">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Añadir Enfermidad</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Añadir Tratamiento</h2>
 
         @if ($errors->any())
             <div class="bg-red-100 text-red-600 p-3 mb-4 rounded-lg">
@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        <form action="{{ route('sickness.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('treatment.store') }}" method="POST" class="space-y-4">
             @csrf
 
             <!-- ID (geralmente oculto para novos cadastros) -->

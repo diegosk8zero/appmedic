@@ -85,4 +85,10 @@ class SicknessController extends Controller
         }
         
     }
+
+    public function management(Sickness $sickness)
+    {
+        //
+        return view('sicknesses.management', ['sickness' => $sickness]);
+    }
 }

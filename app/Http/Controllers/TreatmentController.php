@@ -28,7 +28,7 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('treatments.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class TreatmentController extends Controller
      */
     public function store(StoreTreatmentRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
