@@ -108,6 +108,38 @@
                     Salvar
                 </button>
             </div>
+
+            <!-- Doenças -->
+            <div>
+                <label for="sicknesses" class="block text-sm font-medium text-gray-700">Doenças</label>
+                <select id="sicknesses" name="sicknesses[]" multiple
+                    class="mt-1 block w-1/2 p-2 border @error('sicknesses') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    @foreach($sicknesses as $sickness)
+                        <option value="{{ $sickness->id }}" {{ collect(old('sicknesses'))->contains($sickness->id) ? 'selected' : '' }}>
+                            {{ $sickness->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('sicknesses')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Tratamentos -->
+            <div>
+                <label for="treatments" class="block text-sm font-medium text-gray-700">Tratamentos</label>
+                <select id="treatments" name="treatments[]" multiple
+                    class="mt-1 block w-1/2 p-2 border @error('treatments') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    @foreach($treatments as $treatment)
+                        <option value="{{ $treatment->id }}" {{ collect(old('treatments'))->contains($treatment->id) ? 'selected' : '' }}>
+                            {{ $treatment->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('treatments')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
         </form>
     </div>
 </x-layout>

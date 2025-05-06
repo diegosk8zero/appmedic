@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Medic;
 use App\Models\Clinic;
+use App\Models\Sickness;
+use App\Models\Treatment;
 use App\Http\Requests\StoreMedicRequest;
 use App\Http\Requests\UpdateMedicRequest;
 use App\Repositories\Interfaces\MedicRepositoryInterface;
@@ -34,7 +36,13 @@ class MedicController extends Controller
     public function create()
     {
 
-        return view('medics.create', ['clinics' => Clinic::all()]);
+        return view('medics.create', 
+                        [
+                            'clinics' => Clinic::all(),
+                            'sicknesses' => Sickness::all(),
+                            'treatments' => Treatment::all()
+
+                        ]);
     }
 
     /**
