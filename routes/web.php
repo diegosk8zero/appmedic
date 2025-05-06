@@ -26,8 +26,7 @@ Route::resource('treatment', TreatmentController::Class);
 route::resource('photo', PhotoController::Class);
 route::resource('clinicphoto', ClinicPhotoController::Class);
 
-Route::get('sickness/{sickness}/management', [SicknessController::class, 'management'])->name('sickness.management');
-Route::post('sickness/managementStore', [SicknessController::class, 'managementStore'])->name('sickness.managementStore');
+
 
 //rotas que serao utilizadas 
 /**
