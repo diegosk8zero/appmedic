@@ -40,7 +40,7 @@ class Medic extends Model
         return $this->belongsToMany(Sickness::Class, 'medic_sickness', 'medic_id', 'treatment');
     }
 
-    public function insurances()
+    public function insurances(): BelongsToMany
     {
         return $this->belongsToMany(Insurance::class, 'insurance_medic');
     }

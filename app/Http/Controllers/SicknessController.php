@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sickness;
+use App\Models\Treatment;
 use App\Http\Requests\StoreSicknessRequest;
 use App\Http\Requests\UpdateSicknessRequest;
 use App\Repositories\SicknessRepository;
@@ -33,7 +34,7 @@ class SicknessController extends Controller
     public function create()
     {
         //
-        return view('sicknesses.create');
+        return view('sicknesses.create', ['treatments' => Treatment::all()]);
     }
 
     /**

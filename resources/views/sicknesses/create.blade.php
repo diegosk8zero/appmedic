@@ -45,6 +45,18 @@
                 @enderror
             </div>
 
+            <!-- Tratamentos -->
+            <div class="mt-4">
+                <label for="treatments" class="block text-sm font-medium text-gray-700">Tratamentos</label>
+                <select id="treatments" name="treatments[]" class="select2 mt-1 w-full" multiple>
+                    @foreach($treatments as $treatment)
+                        <option value="{{ $treatment->id }}" {{ collect(old('treatments'))->contains($treatment->id) ? 'selected' : '' }}>
+                            {{ $treatment->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             
 
             <!-- Botão de Enviar -->

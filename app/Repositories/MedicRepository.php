@@ -20,6 +20,7 @@ class MedicRepository implements MedicRepositoryInterface
 
     public function create(array $data): Medic
     {
+        dd($data);
         return Medic::create($data);
     }
 
