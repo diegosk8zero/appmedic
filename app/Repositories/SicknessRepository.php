@@ -34,6 +34,7 @@ class SicknessRepository extends BaseRepository implements BaseRepositoryInterfa
      */
     public function create(array $data)
     {
+        dd($data);
         return $this->model->create($data);
     }
 
