@@ -45,20 +45,24 @@ class SicknessController extends Controller
     public function store(StoreSicknessRequest $request)
     {
         //
-        dd($request->all());
+        // dd($request->all());
         //$this->sicknessRepository->create($data);
 
-        if(Sickness::create($request->all(
-                                         
-                                            )) && ($request->treatment == 1)  )
-                                            
+        if(Sickness::create(
+            [
+                'name' => $request->name,
+                'status' => $request->status,
+                'description' => $request->description,
+
+            ]
+        ) && ($request->treatment == 1)  )                                            
         {   
-        
+            return "funcionou";
                 redirect()->route('treatment.create')->with();
         }
 
 
-
+        return "nao funcionou";
         return redirect()->route('sickness.index')->with('success', 'Enfermidad cadastrada com sucesso!');
     }
 

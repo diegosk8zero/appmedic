@@ -60,9 +60,9 @@
 
             <!-- adicionar em sequencia tratamentos -->
             <div class="flex items-center">
-                <input type="checkbox" id="tratamento" name="tratamento" value="1"
+                <input type="checkbox" id="treatment" name="treatment" value="1"
                     class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                <label for="tratamento" class="ml-2 block text-sm font-medium text-gray-700">Añadir Tratamiento</label>  
+                <label for="treatment" class="ml-2 block text-sm font-medium text-gray-700">Añadir Tratamiento</label>  
             </div>
 
             
