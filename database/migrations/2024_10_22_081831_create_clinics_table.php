@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("phone_2");
             $table->string("adress");
             $table->text("description");
+             $table->boolean('status');
             //$table->geography("coordinates", subtype: "point", srid: 4326);
             $table->timestamps();
         });

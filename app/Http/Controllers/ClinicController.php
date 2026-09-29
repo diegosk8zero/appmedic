@@ -41,6 +41,7 @@ class ClinicController extends Controller
     {
 
         $data = $request->all();
+        //dd($data);
 
         $this->clinicRepository->create($data);
         return redirect()->route('clinic.index')->with('success', 'Clínica cadastrada com sucesso!');

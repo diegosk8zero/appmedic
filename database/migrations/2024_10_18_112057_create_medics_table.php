@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("certification");
             $table->date("birth");
             $table->string("description");
+             $table->boolean('status');
             //$table->geography("coordinates", subtype: "point", srid: 4326);
             $table->timestamps();
         });

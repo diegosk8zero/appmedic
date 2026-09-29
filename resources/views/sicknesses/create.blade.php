@@ -14,6 +14,18 @@
             <!-- ID (geralmente oculto para novos cadastros) -->
             <input type="hidden" id="id" name="id" value="{{ old('id') }}">
 
+            <!--  Medicos -->
+            <div class="mt-4">
+                <label for="medics" class="block text-sm font-medium text-gray-700">Medicos</label>
+                <select id="medics" name="medic" class="select2  w-full block  mt-2  placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" >
+                    @foreach($medics as $medic)
+                        <option value="{{ $medic->id }}" {{ collect(old('medics'))->contains($medic->id) ? 'selected' : '' }}>
+                            {{ $medic->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Nome -->
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
@@ -45,18 +57,15 @@
                 @enderror
             </div>
 
-            <!-- Tratamentos -->
-            <div class="mt-4">
-                <label for="treatments" class="block text-sm font-medium text-gray-700">Tratamentos</label>
-                <select id="treatments" name="treatments[]" class="select2 mt-1 w-full" multiple>
-                    @foreach($treatments as $treatment)
-                        <option value="{{ $treatment->id }}" {{ collect(old('treatments'))->contains($treatment->id) ? 'selected' : '' }}>
-                            {{ $treatment->name }}
-                        </option>
-                    @endforeach
-                </select>
+
+            <!-- adicionar em sequencia tratamentos -->
+            <div class="flex items-center">
+                <input type="checkbox" id="tratamento" name="tratamento" value="1"
+                    class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="tratamento" class="ml-2 block text-sm font-medium text-gray-700">Añadir Tratamiento</label>  
             </div>
 
+            
             
 
             <!-- Botão de Enviar -->

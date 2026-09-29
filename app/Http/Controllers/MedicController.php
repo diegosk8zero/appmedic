@@ -39,8 +39,6 @@ class MedicController extends Controller
         return view('medics.create', 
                         [
                             'clinics' => Clinic::all(),
-                            'sicknesses' => Sickness::all(),
-                            'treatments' => Treatment::all()
 
                         ]);
     }
@@ -51,9 +49,12 @@ class MedicController extends Controller
     public function store(StoreMedicRequest $request)
     {
      
-        $data = $request->all();
-        $this->medicRepository->create($data);
-        return redirect()->route('medic.index')->with('success', 'Medico cadastrado com sucesso!');
+        if (Medic::create($request->all())) {
+            return redirect()->route('medic.index')->with('success', 'Medico cadastrado com sucesso!');
+        }else{
+            return redirect()->route('medic.index')->with('error', 'Error por favor intentar novamente.');
+        }    
+        
     }
 
     /**
@@ -77,8 +78,29 @@ class MedicController extends Controller
      */
     public function update(UpdateMedicRequest $request, Medic $medic)
     {
-            $this->medicRepository->update($medic->id, $request->all());
-            return redirect()->route('medic.index')->with('success_update', 'Medico alterado com sucesso!');
+            //$this->medicRepository->update($medic->id, $request->all());
+
+            
+
+            
+
+            $medic->name = $request->name;
+            $medic->email = $request->email;
+            $medic->phone = $request->phone;
+            $medic->phone_2 = $request->phone_2;
+            $medic->certification = $request->certification;
+            $medic->description = $request->description;
+            $medic->status = $request->status;
+
+            //dd($medic, $request->all(), $request->name);
+
+            if ($medic->save()) {
+                return redirect()->route('medic.index')->with('success_update', 'Medico alterado com sucesso!');
+            }else{
+                return redirect()->route('medic.index')->with('error_update', 'Error por favor intentar novamente.');
+            }
+
+            
     }
 
     /**

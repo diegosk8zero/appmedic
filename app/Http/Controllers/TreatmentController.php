@@ -36,7 +36,24 @@ class TreatmentController extends Controller
      */
     public function store(StoreTreatmentRequest $request)
     {
-        dd($request->all());
+      
+        $tratamento = new Treatment;
+
+        $treatments = $request->all();
+        //dd($request->all(), $treatments['treatment']);
+
+        $count = 0;
+
+        foreach($treatments['treatment'] as $t){
+            dump($t['name']);
+            dump($t['status']);
+            dump($t['description']);
+            
+        }
+
+        dd($request->all(), $treatments['treatment']);
+
+        //dd($request->all());
     }
 
     /**

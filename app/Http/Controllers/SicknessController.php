@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sickness;
 use App\Models\Treatment;
+use App\Models\Medic;
 use App\Http\Requests\StoreSicknessRequest;
 use App\Http\Requests\UpdateSicknessRequest;
 use App\Repositories\SicknessRepository;
@@ -34,7 +35,8 @@ class SicknessController extends Controller
     public function create()
     {
         //
-        return view('sicknesses.create', ['treatments' => Treatment::all()]);
+
+        return view('sicknesses.create', ['medics' => Medic::all()]);
     }
 
     /**
@@ -43,8 +45,20 @@ class SicknessController extends Controller
     public function store(StoreSicknessRequest $request)
     {
         //
-        $data = $request->all();
-        $this->sicknessRepository->create($data);
+        dd($request->all());
+        //$this->sicknessRepository->create($data);
+
+        if(Sickness::create($request->all(
+                                         
+                                            )) && ($request->treatment == 1)  )
+                                            
+        {   
+        
+                redirect()->route('treatment.create')->with();
+        }
+
+
+
         return redirect()->route('sickness.index')->with('success', 'Enfermidad cadastrada com sucesso!');
     }
 

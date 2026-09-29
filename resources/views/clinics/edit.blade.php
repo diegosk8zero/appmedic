@@ -65,6 +65,13 @@
                 @enderror
             </div>
 
+             <div class="flex items-center">
+                <input type="checkbox" id="status" name="status" value="1" {{ old('status', $clinic->status) ? 'checked' : '' }}
+                    class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="status" class="ml-2 block text-sm font-medium text-gray-700">Ativo</label>
+                <input type="hidden" name="status" value="0"> <!-- Valor padrão caso não seja marcado -->
+            </div>
+
             <!-- Botões -->
             <div class="flex justify-end items-center pt-4 space-x-2">
                 <a href="{{ route('clinic.index') }}" 

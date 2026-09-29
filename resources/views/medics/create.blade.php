@@ -101,28 +101,15 @@
                 @enderror
             </div>
 
-            <!-- Doenças -->
-            <div>
-                <label for="sicknesses" class="block text-sm font-medium text-gray-700">Doenças</label>
-                <select id="sicknesses" name="sicknesses[]" class="select2 mt-1 w-full" multiple>
-                    @foreach($sicknesses as $sickness)
-                        <option value="{{ $sickness->id }}" {{ collect(old('sicknesses'))->contains($sickness->id) ? 'selected' : '' }}>
-                            {{ $sickness->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <!-- Tratamentos -->
-            <div class="mt-4">
-                <label for="treatments" class="block text-sm font-medium text-gray-700">Tratamentos</label>
-                <select id="treatments" name="treatments[]" class="select2 mt-1 w-full" multiple>
-                    @foreach($treatments as $treatment)
-                        <option value="{{ $treatment->id }}" {{ collect(old('treatments'))->contains($treatment->id) ? 'selected' : '' }}>
-                            {{ $treatment->name }}
-                        </option>
-                    @endforeach
-                </select>
+            <!-- Status -->
+            <div class="flex items-center">
+                <input type="checkbox" id="status" name="status" value="1" {{ old('status') ? 'checked' : '' }}
+                    class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="status" class="ml-2 block text-sm font-medium text-gray-700">Ativo</label>
+                
+                @error('status')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
 

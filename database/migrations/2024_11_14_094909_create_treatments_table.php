@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->unsignedBigInteger('sickness_id');
+            $table->foreign('sickness_id')->references('id')->on('sicknesses');
             $table->boolean('status');
             $table->timestamps();
         });

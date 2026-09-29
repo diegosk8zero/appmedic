@@ -13,7 +13,7 @@ class Medic extends Model
 {
     use hasFactory;
     
-    protected $fillable = ['name', 'email', 'phone', 'phone_2', 'certification',	'birth', 'description', 'clinic_id'];
+    protected $fillable = ['name', 'email', 'phone', 'phone_2', 'certification', 'birth', 'description', 'clinic_id', 'status'];
 
     public function clinic(): BelongsTo
     {
@@ -32,17 +32,17 @@ class Medic extends Model
 
     public function treatments(): BelongsToMany
     {
-        return $this->belongsToMany(Treatment::Class, 'medic_treatment', 'medic_id', 'treatment');
-    }
-
-    public function sickness(): BelongsToMany
-    {
-        return $this->belongsToMany(Sickness::Class, 'medic_sickness', 'medic_id', 'treatment');
+        return $this->belongsToMany(Treatment::Class, 'medic_treatment', 'medic_id', 'treatment_id');
     }
 
     public function insurances(): BelongsToMany
     {
         return $this->belongsToMany(Insurance::class, 'insurance_medic');
+    }
+
+     public function photos(): HasMany
+    {
+        return $this->hasMany(Photos::Class);
     }
 
     

@@ -3,7 +3,7 @@
 <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
         <!-- Botão de Adicionar Clínica -->
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-bold">Lista de Clínicas</h2>
+            <h2 class="text-2xl font-bold">Lista de Medicos</h2>
             <a href="{{ route('medic.create') }}" 
                 class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
                 + Adicionar Medico
@@ -19,6 +19,18 @@
         @if (session('success_update'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4">
                 {{ session('success_update') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if (session('error_update'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4">
+                {{ session('error_update') }}
             </div>
         @endif
 
