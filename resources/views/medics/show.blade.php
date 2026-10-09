@@ -3,8 +3,8 @@
     <!-- Hero Section -->
     <section id="doctors" class="doctors section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Médicos</h2>
-        <p>Conheça nossos especialistas e suas áreas de atuação.</p>
+        <h2>Medico</h2>
+        <p>Conheça um pouco sobre nosso profissional</p>
       </div>
       <div class="container">
         <div class="row gy-4">

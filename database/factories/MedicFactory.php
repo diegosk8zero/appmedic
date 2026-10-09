@@ -30,6 +30,7 @@ class MedicFactory extends Factory
             'phone_2' => '888 88 88 88',
             'certification' => '123 456 789',
             'birth' => '1988-04-04',
+            'status' => 1,
             'description' => fake()->paragraph(2),
             'clinic_id' => Clinic::factory()
         ];

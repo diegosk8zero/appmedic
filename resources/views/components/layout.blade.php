@@ -11,8 +11,11 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="{{asset('DataTables/datatables.min.js')}}"></script>
   <link rel="stylesheet" href="{{asset('DataTables/datatables.min.css')}}">
+
+
   <!-- Select2 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 
 
 <html class="h-full bg-gray-100">
@@ -93,7 +96,7 @@
 </div>
 
 <!-- jQuery (necessário para Select2) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
 <!-- Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -113,11 +116,6 @@
     });
 </script>
 
-</body>
 
-<script>
-  $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>
+</body>
 </html>

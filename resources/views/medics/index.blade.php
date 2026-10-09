@@ -76,6 +76,8 @@
     </div>
 
     <!-- Script de Inicialização do DataTables -->
+   
+
     <script>
         $(document).ready( function () {
             $('#medicsTable').DataTable({
